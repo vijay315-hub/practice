@@ -21,29 +21,32 @@ body{
     border-radius:10px;
 }
 
-.btn{
+.home-btn{
     display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
+    margin-bottom:15px;
+    text-decoration:none;
     background:#2563eb;
     color:white;
-    text-decoration:none;
+    padding:8px 12px;
     border-radius:6px;
 }
- 
 </style>
 </head>
 
 <body>
 
-<div class="container" id="jobDetail">
-Loading job details...
+<div class="container">
+
+  <a href="index.html" class="home-btn">← Back to Home</a>
+
+  <div id="jobDetail">Loading job details...</div>
+
 </div>
 
 <script>
 
-const urlParams = new URLSearchParams(window.location.search);
-const jobId = urlParams.get("id");
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQE0orW_Uem5Vi736r-rSdwHKpJLmCmHh9IhVjIs2au5nnhMjhWv8Pp1X-yKHRlo-LhHuzHc9dgHPSH/pub?output=csv";
 
@@ -52,15 +55,21 @@ fetch(sheetURL)
 .then(data => {
 
     let rows = data.trim().split("\n").slice(1);
-    let job = rows[jobId].split(",");
+
+    if(!rows[id]){
+        document.getElementById("jobDetail").innerHTML = "Job not found";
+        return;
+    }
+
+    let cols = rows[id].split(",");
 
     document.getElementById("jobDetail").innerHTML = `
-        <h2>${job[0]}</h2>
-        <p>${job[1]}</p>
-        <p><b>Date:</b> ${job[3]}</p>
+        <h2>${cols[0]}</h2>
+        <p>${cols[1]}</p>
+        <p><b>Date:</b> ${cols[3]}</p>
 
-        <a class="btn" href="${job[2]}" target="_blank">Apply Now</a>
-        <a class="btn" href="${job[4]}" target="_blank">View PDF</a>
+        <a class="home-btn" href="${cols[2]}" target="_blank">Apply Now</a>
+        <a class="home-btn" href="${cols[4]}" target="_blank">View PDF</a>
     `;
 });
 
