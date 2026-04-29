@@ -8,49 +8,103 @@
 
 <style>
 body{
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin:0;
-    background:#0f172a;
-    color:#e5e7eb;
+    background:#f4f6f8;
+    color:#111827;
 }
 
+/* HEADER */
 header{
-    background:#111827;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
     color:white;
     padding:20px;
     text-align:center;
 }
 
+/* CONTAINER */
 .container{
     width:90%;
-    max-width:850px;
-    margin:20px auto;
+    max-width:800px;
+    margin:30px auto;
 }
 
+/* CARD */
 .card{
-    background:#1f2937;
-    padding:18px;
-    margin:12px 0;
+    background:white;
+    padding:25px;
     border-radius:12px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.4);
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-.card h3{ color:#f9fafb; }
-.card p{ color:#d1d5db; }
-small{ color:#9ca3af; }
+/* TITLE */
+.card h2{
+    margin-bottom:10px;
+    color:#111827;
+}
 
+/* DESCRIPTION */
+.card p{
+    color:#374151;
+    line-height:1.6;
+}
+
+/* DATE BADGE */
+.date{
+    display:inline-block;
+    margin:10px 0;
+    padding:5px 10px;
+    background:#dcfce7;
+    color:#166534;
+    border-radius:6px;
+    font-size:13px;
+}
+
+/* BUTTON BASE */
 .btn{
     display:inline-block;
-    margin-top:8px;
-    padding:7px 12px;
-    background:#2563eb;
-    color:white;
+    margin-top:15px;
+    margin-right:10px;
+    padding:10px 16px;
     border-radius:8px;
     text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
 }
 
-.btn:hover{
+/* APPLY BUTTON */
+.apply-btn{
+    background:#22c55e;
+    color:white;
+}
+
+.apply-btn:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+}
+
+/* PDF BUTTON */
+.pdf-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.pdf-btn:hover{
     background:#1e3a8a;
+    transform:translateY(-2px);
+}
+
+/* BACK LINK */
+.back-btn{
+    display:inline-block;
+    margin-bottom:15px;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.back-btn:hover{
+    text-decoration:underline;
 }
 </style>
 </head>
@@ -92,14 +146,17 @@ fetch(sheetURL)
     let pdf  = cols[4] || "#";
 
     document.getElementById("jobDetail").innerHTML = `
+    <div class="card">
         <h2>${title}</h2>
+
         <p>${desc}</p>
-        <p><b>Date:</b> ${date}</p>
 
-        <a class="home-btn" href="${link}" target="_blank">Apply Now</a>
-        <a class="home-btn" href="${pdf}" target="_blank">View PDF</a>
-    `;
+        <div class="date">Last Date: ${date}</div><br>
 
+        <a class="btn apply-btn" href="${link}" target="_blank">🚀 Apply Now</a>
+        <a class="btn pdf-btn" href="${pdf}" target="_blank">📄 View PDF</a>
+    </div>
+`;
 })
 .catch(err => {
     document.getElementById("jobDetail").innerHTML = "Error loading job ❌";
