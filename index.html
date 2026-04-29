@@ -47,6 +47,7 @@
 
 body{
     margin:0;
+    padding:0;
     font-family: Arial;
     background:#f4f6f8;
 }
@@ -74,9 +75,9 @@ header{
 
 /* CARD */
 .container{
-    width:90%;
-    max-width:850px;
-    margin:auto;
+    width:100%;
+    padding:0 20px;
+    box-sizing:border-box;
     overflow:hidden;
 }
 
@@ -268,6 +269,10 @@ header{
   html, body{
     overflow-x: hidden;
 }
+ header, .navbar{
+    width:100%;
+    box-sizing:border-box;
+} 
 </style>
 </head>
 
