@@ -47,7 +47,6 @@
 
 body{
     margin:0;
-    padding:0;
     font-family: Arial;
     background:#f4f6f8;
 }
@@ -58,8 +57,6 @@ header{
     color:White;
     padding:25px;
     text-align:center;
-    width:100%;
-    box-sizing:border-box;  
 }
 
 /* SEARCH */
@@ -77,9 +74,10 @@ header{
 
 /* CARD */
 .container{
-     width:90%;
-    max-width:900px;
-    margin:20px auto;   /* 🔥 THIS FIXES CENTER */
+    width:90%;
+    max-width:850px;
+    margin:auto;
+    overflow:hidden;
 }
 
 .card{
@@ -102,12 +100,12 @@ header{
     text-decoration:none;
     transition:0.3s;
 }
-  /* 🔥 HOVER EFFECT */
+/* 🔥 HOVER EFFECT */
 .btn:hover{
     background:#22c55e;
     transform:translateY(-2px);
     box-shadow:0 6px 15px rgba(0,0,0,0.2);
-}
+}  
 .footer{
     background:#111827;
     color:#ffffff;
@@ -142,13 +140,13 @@ header{
 
 .footer-links a:hover{
     color:#22c55e;
+    background:#1f2937;   /* optional smooth effect */  
 }
 
 .footer .copyright{
     font-size:12px;
     color:#9ca3af;
 }
-
 
 /* MOVING TEXT */
 .ticker-move{
@@ -215,6 +213,7 @@ header{
     font-weight:500;
     position:relative;
     transition:0.3s;
+    word-wrap:break-word;  
 }
 
 /* HOVER EFFECT (underline animation) */
@@ -227,7 +226,6 @@ header{
     left:0;
     bottom:-4px;
     transition:0.3s;
-   word-wrap:break-word;
 }
 
 .nav-links a:hover::after{
@@ -250,7 +248,6 @@ header{
         padding:0;
         margin:0;
     }
-
     .navbar{
         flex-direction:column;
         align-items:flex-start;
@@ -267,21 +264,15 @@ header{
         margin:8px 0;
         padding:8px 0;
     }
-  html, body{
+html, body{
     overflow-x: hidden;
 }
-.btn-section{
-    display:flex;
-    justify-content:center;   /* 🔥 centers horizontally */
-    flex-wrap:wrap;
-    gap:10px;
-    margin:20px auto;
-}
+
 </style>
 </head>
 
 <body>
- <nav class="navbar">
+<nav class="navbar">
 
   <div class="logo">
     <a href="index.html">
@@ -297,7 +288,8 @@ header{
     <a href="contact.html">Contact Us</a>
   </div>
 
-</nav><header>
+</nav>
+<header>
 <h1>Latest Government Job Updates in India</h1>
 <p>Daily updated government job listings including Gujarat jobs, railway, SSC, banking, and state-level recruitment.</p>
  <div class="news-ticker">
@@ -306,11 +298,21 @@ header{
   </div>
 </div> 
 </header>
- <<div class="btn-section">
+ <div style="text-align:center; margin:15px;">
   <a class="btn" href="10th-pass-jobs.html">10th Pass Jobs</a>
   <a class="btn" href="12th-pass-jobs.html">12th Pass Jobs</a>
   <a class="btn" href="latest-jobs.html">Latest Jobs</a>
-</div>
+  <a class="btn" href="clerk-jobs.html">Clerk Jobs</a>
+   <a class="btn" href="police-jobs.html">Police Jobs</a>
+   <a class="btn" href="engineer-jobs.html">Engineer Jobs</a>
+   <a class="btn" href="bank-jobs.html">Bank Jobs</a>
+   <a class="btn" href="teacher-jobs.html">Teacher Jobs</a>
+   <a class="btn" href="gujarat-jobs.html">Gujarat Jobs</a>
+   <a class="btn" href="railway-jobs.html">Railway Jobs</a>
+   <a class="btn" href="ssc-jobs.html">SSC Jobs</a>
+    <a class="btn" href="data-entry-jobs.html">Data Entry Jobs</a>
+   <a class="btn" href="peon-jobs.html">Peon Jobs</a> 
+</div> 
 
 <div class="search-box">
 <input type="text" id="search" placeholder="Search jobs...">
@@ -409,7 +411,8 @@ document.getElementById("search").addEventListener("input", function(){
 
     renderJobs(filtered);
 });
-  
+
 </script>
+
 </body>
 </html>
