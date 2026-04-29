@@ -88,15 +88,24 @@ fetch(sheetURL)
 
         let pdfBtn = pdf ? `<a class="btn" href="${pdf}" target="_blank">PDF</a>` : "";
 
-        html += `
-        <div class="card">
-            <h3>${title}</h3>
-            <p>${desc}</p>
-            <small>${date}</small><br>
-            <a class="btn" href="${link}" target="_blank">Apply</a>
-            ${pdfBtn}
-        </div>
-        `;
+       html += `
+            <div class="card">
+                <h3>🔥 ${title}</h3>
+                <p>${desc}</p>
+                <small>${date}</small><br>
+
+                <a class="btn" href="${link}" target="_blank">Apply</a>
+
+                <a class="btn" href="${pdfLink}" target="_blank">PDF</a>
+
+                <a class="btn"
+                href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
+                target="_blank">
+                Share
+                </a>
+            </div>
+            `;
+        }
     });
 
     document.getElementById("jobs").innerHTML = html;
