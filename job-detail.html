@@ -8,27 +8,78 @@
 
 <style>
 body{
-    font-family:Arial;
+    font-family: Arial;
     margin:0;
-    background:#f4f6f8;
+    background:#0f172a;   /* dark background */
+    color:#e5e7eb;
 }
 
-.container{
-    max-width:800px;
-    margin:20px auto;
+/* HEADER */
+header{
+    background:#111827;
+    color:white;
     padding:20px;
-    background:white;
-    border-radius:10px;
+    text-align:center;
 }
 
-.home-btn{
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:850px;
+    margin:20px auto;
+}
+
+/* CARD */
+.card{
+    background:#1f2937;   /* dark card */
+    padding:18px;
+    margin:12px 0;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.4);
+}
+
+/* TEXT */
+.card h3{
+    color:#f9fafb;
+}
+
+.card p{
+    color:#d1d5db;
+}
+
+small{
+    color:#9ca3af;
+}
+
+/* BUTTON */
+.btn{
     display:inline-block;
-    margin-bottom:15px;
+    margin-top:8px;
+    padding:7px 12px;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
     text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1e3a8a;
+}
+
+/* BACK BUTTON */
+.back-btn{
+    display:inline-block;
+    margin:10px;
     background:#2563eb;
     color:white;
     padding:8px 12px;
     border-radius:6px;
+    text-decoration:none;
+}
+
+.back-btn:hover{
+    background:#1e3a8a;
 }
 </style>
 </head>
@@ -37,7 +88,7 @@ body{
 
 <div class="container">
 
-  <a href="index.html" class="home-btn">← Back to Home</a>
+  <a class="back-btn" href="index.html">⬅ Back to Home</a>
 
   <div id="jobDetail">Loading job details...</div>
 
