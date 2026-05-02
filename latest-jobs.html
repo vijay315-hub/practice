@@ -124,6 +124,10 @@ fetch(sheetURL)
         let link = cols[2] || "";
         let date = cols[3] || "";
         let pdf  = cols[4] || "";
+        let edu = cols[5] || "Not Mentioned";
+        let age = cols[6] || "Not Mentioned";
+        let salary = cols[7] || "Not Mentioned";
+        let location = cols[8] || "India";
 
         let pdfBtn = pdf ? `<a class="btn" href="${pdf}" target="_blank">PDF</a>` : "";
 
