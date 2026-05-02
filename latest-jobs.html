@@ -115,7 +115,7 @@ fetch(sheetURL)
     // latest first
     rows.reverse();
 
-    rows.forEach((row) => {
+    rows.forEach((row, index) =>  {
 
         let cols = row.split(",");
 
@@ -128,22 +128,40 @@ fetch(sheetURL)
         let pdfBtn = pdf ? `<a class="btn" href="${pdf}" target="_blank">PDF</a>` : "";
 
         html += `
-        <div class="card">
-            <h3>🔥 ${title}</h3>
-            <p>${desc}</p>
-            <small>${date}</small><br>
+<div class="card">
 
-            <a class="btn" href="${link}" target="_blank">Apply</a>
+<h3>${title}</h3>
 
-            ${pdfBtn}
+<p>${desc}</p>
 
-            <a class="btn"
-            href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
-            target="_blank">
-            Share
-            </a>
-        </div>
-        `;
+<small>${date}</small><br>
+
+<a class="btn"
+href="job-detail.html?id=${index}">
+🔍 View Details
+</a>
+
+<a class="btn"
+href="${link}"
+target="_blank">
+🚀 Apply
+</a>
+
+<a class="btn"
+href="${pdf}"
+target="_blank">
+📄 PDF
+</a>
+
+<a class="btn"
+href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
+target="_blank">
+📤 Share
+</a>
+
+</div>
+`;
+
     });
 
     document.getElementById("jobs").innerHTML = html;
