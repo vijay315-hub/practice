@@ -33,20 +33,18 @@ header{
 .btn{
     display:inline-block;
     margin-top:8px;
-    padding:7px 12px;
+    margin-right:8px;
+    padding:8px 14px;
     background:#111827;
     color:white;
     border-radius:8px;
     text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
 }
-.btn{
-    display:inline-block;
-    margin-top:8px;
-    padding:7px 12px;
-    background:#111827;
-    color:white;
-    border-radius:8px;
-    text-decoration:none;
+
+.btn:hover{
+    background:#22c55e;
 } 
  .seo-text{
     background:#1f2937;
@@ -133,27 +131,13 @@ fetch(sheetURL)
             <small>${date}</small><br>
 
             <a class="btn"
-            href="job-detail.html?id=${rows.length - 1 - index}"
-            🔍 View Details
-            </a>
+            <a class="btn" href="job-detail.html?id=${index}">🔍 View Details</a>>
 
-            <a class="btn"
-            href="${link}"
-            target="_blank">
-            🚀 Apply
-            </a>
+            <a class="btn" href="${link}" target="_blank">🚀 Apply</a>
 
-            <a class="btn"
-            href="${pdf}"
-            target="_blank">
-            📄 PDF
-            </a>
+           <a class="btn" href="${pdf}" target="_blank">📄 PDF</a>
 
-            <a class="btn"
-            href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
-            target="_blank">
-            📤 Share
-            </a>
+          <a class="btn" href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}" target="_blank">📤 Share</a>
 
         </div>
         `;
