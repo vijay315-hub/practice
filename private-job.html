@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Private Jobs in India 2026</title>
+
+<meta name="description" content="Find latest private jobs in India for freshers and experienced candidates including IT jobs, office jobs, work from home, sales, marketing and company recruitment updates.">
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+/* HEADER */
+header{
+    background:#111827;
+    color:white;
+    padding:25px;
+    text-align:center;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:850px;
+    margin:auto;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:18px;
+    margin:15px 0;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:8px;
+    margin-right:8px;
+    padding:8px 14px;
+    background:#111827;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#22c55e;
+}
+
+/* SEO CONTENT */
+.seo-text{
+    background:#1f2937;
+    margin:20px auto;
+    padding:20px;
+    border-radius:12px;
+    line-height:1.8;
+    color:#d1d5db;
+    width:90%;
+    max-width:850px;
+}
+
+.seo-text h2,
+.seo-text h3{
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div style="text-align:center; margin:15px;">
+  <a class="btn" href="index.html">⬅ Back to Home</a>
+</div>
+
+<header>
+<h1>Latest Private Jobs in India</h1>
+<p>Daily updated private company job vacancies</p>
+</header>
+
+<div class="container" id="jobs">Loading...</div>
+
+<section class="seo-text">
+
+<h2>Latest Private Jobs in India 2026</h2>
+
+<p>
+Find daily updated private jobs in India for freshers and experienced candidates. This page includes IT jobs, BPO jobs, office jobs, work from home jobs, sales jobs, marketing jobs and company recruitment notifications.
+</p>
+
+<p>
+Candidates with 10th pass, 12th pass, ITI, diploma and graduate qualifications can apply for various private company vacancies across India.
+</p>
+
+<h3>Popular Private Job Categories</h3>
+
+<ul>
+<li>IT Company Jobs</li>
+<li>Data Entry Jobs</li>
+<li>Work From Home Jobs</li>
+<li>BPO Jobs</li>
+<li>Sales Executive Jobs</li>
+<li>Marketing Jobs</li>
+<li>Computer Operator Jobs</li>
+</ul>
+
+<h3>Why Use Our Website?</h3>
+
+<p>
+We regularly update private company jobs with direct apply links, salary details and recruitment information for job seekers across India.
+</p>
+
+</section>
+
+<script>
+
+const sheetURL = "YOUR_PRIVATE_JOB_GOOGLE_SHEET_LINK";
+
+fetch(sheetURL)
+.then(res => res.text())
+.then(data => {
+
+    let rows = data.trim().split("\\n").slice(1);
+
+    let html = "";
+
+    rows.forEach((row, index) => {
+
+        let cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+        let title = cols[0] || "";
+        let desc = cols[1] || "";
+        let link = cols[2] || "#";
+        let date = cols[3] || "";
+        let pdf  = cols[4] || "#";
+
+        html += `
+        <div class="card">
+
+            <h3>${title}</h3>
+
+            <p>${desc}</p>
+
+            <small>${date}</small><br>
+
+            <a class="btn" href="job-detail.html?id=${index}">
+            🔍 View Details
+            </a>
+
+            <a class="btn" href="${link}" target="_blank">
+            🚀 Apply
+            </a>
+
+            <a class="btn" href="${pdf}" target="_blank">
+            📄 PDF
+            </a>
+
+            <a class="btn"
+            href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
+            target="_blank">
+            📤 Share
+            </a>
+
+        </div>
+        `;
+    });
+
+    document.getElementById("jobs").innerHTML = html;
+
+})
+.catch(err => {
+
+    document.getElementById("jobs").innerHTML =
+    "Error loading jobs ❌";
+
+    console.log(err);
+
+});
+
+</script>
+
+</body>
+</html>
